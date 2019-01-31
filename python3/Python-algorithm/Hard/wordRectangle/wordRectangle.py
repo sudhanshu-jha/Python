@@ -12,7 +12,7 @@
 # and attempt to build a rectangle of words of length l and height h.
 # We could build such a rectangle by taking all ordered sets of words
 # of length l and then check to see if the columns are also valid words.
-# But this would lead to lot of extra work. What if, while building 
+# But this would lead to lot of extra work. What if, while building
 # the rectangle, we could quickly find out if there is a word
 # starting with a given column prefix before having to build till height
 # h ? This could save us a lot of extra work. We can do this using a
@@ -21,7 +21,7 @@
 # prefix will return a valid word of say height h.
 
 # So we start by trying out all possible length l words. Say we have
-# k words of length l in the rectangle so far. Partial height is 
+# k words of length l in the rectangle so far. Partial height is
 # k. Then all we have to check is if these partial columns are prefixes
 # for valid words of height h. If they are, then we try appending
 # new words of length l to grow the rectangle until we have words left.

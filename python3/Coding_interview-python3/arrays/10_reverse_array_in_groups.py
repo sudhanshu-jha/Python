@@ -15,6 +15,7 @@ def reverse(arr, l, r):
         arr[i] = arr[r + l - i]
         arr[r + l - i] = temp
 
+
 t = int(input())
 
 for _ in range(t):

@@ -1,6 +1,7 @@
 # Given an array of positive and negative integers, find the maximum
 # contiguous sum in the array.
 
+
 def contiguousSum(arr):
     sum_val = 0
     max_val = 0

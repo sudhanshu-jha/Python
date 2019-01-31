@@ -9,6 +9,7 @@
 # 3
 # 7
 
+
 def findMid(head):
     if head == None:
         return -1

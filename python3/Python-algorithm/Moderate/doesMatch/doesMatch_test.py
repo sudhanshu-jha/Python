@@ -1,11 +1,12 @@
 from doesMatch import doesMatch
 import pytest
 
+
 def test_doesMatch():
-    pattern = 'aabab'
-    value = 'catcatgocatgo'
+    pattern = "aabab"
+    value = "catcatgocatgo"
 
-    assert(doesMatch(pattern,value) == True)
+    assert doesMatch(pattern, value) == True
 
-    value = 'cat'
-    assert(doesMatch(pattern,value) == False)
+    value = "cat"
+    assert doesMatch(pattern, value) == False

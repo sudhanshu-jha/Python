@@ -17,7 +17,7 @@ for _ in range(t):
     arr_sorted = sorted(arr)
     dep_sorted = sorted(dep)
 
-    i, j, platforms,  max_platforms = 1, 0, 1, 1
+    i, j, platforms, max_platforms = 1, 0, 1, 1
     while i < n and j < n:
         if arr_sorted[i] < dep_sorted[j]:
             i += 1

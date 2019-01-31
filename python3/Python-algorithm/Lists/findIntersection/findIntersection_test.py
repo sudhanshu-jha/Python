@@ -1,6 +1,7 @@
 from Node import Node
 from findIntersection import findIntersection
 
+
 def test_findIntersection():
     ## Create first list
     first1 = Node(3)
@@ -28,10 +29,5 @@ def test_findIntersection():
     ## Check for intersection
     intersection = findIntersection(first1, first2)
 
-    assert(intersection is not None)
-    assert(intersection.get_key() == 7)
-
-
-
-
-
+    assert intersection is not None
+    assert intersection.get_key() == 7

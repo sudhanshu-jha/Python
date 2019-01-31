@@ -1,11 +1,13 @@
 from containsTree import containsTree
 import pytest
 
+
 class Node:
     def __init__(self, key):
         self.key = key
         self.left = None
         self.right = None
+
 
 def test_containsTree_match():
     node11 = Node(10)
@@ -21,13 +23,12 @@ def test_containsTree_match():
     node12.right = node15
     node13.right = node16
 
-
     node21 = Node(15)
     node22 = Node(17)
 
     node21.right = node22
 
-    '''
+    """
         T1:     10
                /  \
               5    15
@@ -37,9 +38,10 @@ def test_containsTree_match():
         T2:     15
                  \
                  17
-    '''
+    """
 
-    assert(containsTree(node11, node21) == True)
+    assert containsTree(node11, node21) == True
+
 
 def test_containsTree_no_match():
     node11 = Node(10)
@@ -55,13 +57,12 @@ def test_containsTree_no_match():
     node12.right = node15
     node13.right = node16
 
-
     node21 = Node(15)
     node22 = Node(17)
 
     node21.left = node22
 
-    '''
+    """
         T1:     10
                /  \
               5    15
@@ -71,5 +72,5 @@ def test_containsTree_no_match():
         T2:     15
                 /
                17
-    '''
-    assert(containsTree(node11, node21) == False)
+    """
+    assert containsTree(node11, node21) == False

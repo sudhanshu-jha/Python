@@ -1,19 +1,22 @@
 # Return all subsets of a set.
 
+
 def getSubsets(input_set):
     return getSubsets_helper(input_set, len(input_set))
+
 
 def getSubsets_helper(input_set, n):
     if n == 0:
         return [[]]
     else:
-        allSubsets = getSubsets_helper(input_set, n-1)
+        allSubsets = getSubsets_helper(input_set, n - 1)
         moreSubsets = []
         for subset in allSubsets:
             cloned = list(subset)
             cloned.append(n)
             moreSubsets.append(cloned)
         return allSubsets + moreSubsets
+
 
 # Method 2
 # If we look at any given subset of some set, we could think
@@ -23,6 +26,7 @@ def getSubsets_helper(input_set, n):
 # represent each subset, therefore, as a sequence of binary numbers
 # from 0 to 2^n (exclusive) where n is the size of set.
 
+
 def getSubsets2(input_set):
     allSubsets = []
     max_val = 1 << len(input_set)
@@ -30,6 +34,7 @@ def getSubsets2(input_set):
         subset = convertFromIntToSet(k, input_set)
         allSubsets.append(subset)
     return allSubsets
+
 
 def convertFromIntToSet(x, input_set):
     subset = []

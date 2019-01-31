@@ -10,6 +10,7 @@
 # number of letters and numbers will be the one with max(j-i). Note
 # that the actual subarray will start from index i+1 and end at index j.
 
+
 def findLongestSubarray(arr):
     # compute deltas between count of numbers and count of letters.
     deltas = computeDeltaArray(arr)
@@ -17,10 +18,11 @@ def findLongestSubarray(arr):
     # find pair in deltas with matching difference and largest span.
     match = findLongestMatch(deltas)
 
-    return arr[match[0]+1:match[1]]
+    return arr[match[0] + 1 : match[1]]
+
 
 def countDeltaArray(arr):
-    deltas = [0]*len(arr)
+    deltas = [0] * len(arr)
     delta = 0
 
     for i in range(len(arr)):
@@ -32,15 +34,16 @@ def countDeltaArray(arr):
 
     return deltas
 
+
 def findLongestMatch(deltas):
     hashmap = {}
     hashmap[0] = -1
-    max_span = (0,0)
+    max_span = (0, 0)
     for i in range(len(deltas)):
         if deltas[i] in hashmap:
             other = hashmap[deltas[i]]
             if i - other > max_span[1] - max_span[0]:
-                max_span = (other,i)
+                max_span = (other, i)
         else:
             hashmap[deltas[i]] = i
 

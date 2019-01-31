@@ -8,21 +8,24 @@
 # with the nth card.
 from random import random
 
+
 def rand(lower, higher):
     return lower + int(random() * (higher - lower + 1))
+
 
 def shuffleArrayRecursive(cards, i):
     if i == 0:
         return cards
 
-    shuffleArrayRecursive(cards, i-1) # Shuffle earlier part
-    k = rand(0,i)
+    shuffleArrayRecursive(cards, i - 1)  # Shuffle earlier part
+    k = rand(0, i)
 
     temp = cards[i]
     cards[i] = cards[k]
     cards[k] = temp
 
     return cards
+
 
 def shuffleArrayIterative(cards):
     for i in range(len(cards)):

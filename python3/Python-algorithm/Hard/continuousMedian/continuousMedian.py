@@ -15,6 +15,7 @@ import heapq
 maxheap = []
 minheap = []
 
+
 def addNewNumber(randomNumber):
     if len(maxheap) == len(minheap):
         if len(minheap) > 0 and randomNumber > minheap[0]:
@@ -29,10 +30,11 @@ def addNewNumber(randomNumber):
         else:
             heapq.heappush(minheap, randomNumber)
 
+
 def getMedian():
     if len(maxheap) == 0:
         return 0
     elif len(maxheap) == len(minheap):
-        return (float(abs(maxheap[0])) + minheap[0])/2
+        return (float(abs(maxheap[0])) + minheap[0]) / 2
     else:
         return maxheap[0]

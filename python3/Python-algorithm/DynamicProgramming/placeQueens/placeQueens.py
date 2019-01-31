@@ -2,6 +2,7 @@
 
 GRID_SIZE = 8
 
+
 def placeQueens(row, columns, results):
     if row == GRID_SIZE:
         results.append(list(columns))
@@ -11,7 +12,8 @@ def placeQueens(row, columns, results):
                 # By convention, if columns[r] = c, it means in rth row,
                 # queen is placed at cth column.
                 columns[row] = col
-                placeQueens(row+1, columns, results)
+                placeQueens(row + 1, columns, results)
+
 
 def checkValid(row1, col1, columns):
     for row2 in range(row1):

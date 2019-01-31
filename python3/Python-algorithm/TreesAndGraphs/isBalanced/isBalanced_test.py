@@ -2,8 +2,8 @@ from isBalanced import isBalanced
 from isBalanced import isBalanced_better
 import pytest
 
-class Node:
 
+class Node:
     def __init__(self, key):
         self.key = key
         self.left = None
@@ -21,8 +21,8 @@ class Node:
         node2.left = node4
         node2.right = node5
 
-        assert(isBalanced(node1) == True)
-        assert(isBalanced_better(node1) == True)
+        assert isBalanced(node1) == True
+        assert isBalanced_better(node1) == True
 
     def test_isnotBalanced():
         node1 = Node(24)
@@ -38,5 +38,5 @@ class Node:
         node4.right = node5
         node5.right = node6
 
-        assert(isBalanced(node1) == False)
-        assert(isBalanced_better(node1) == False)
+        assert isBalanced(node1) == False
+        assert isBalanced_better(node1) == False

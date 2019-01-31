@@ -5,23 +5,25 @@ class Node:
         self.right = None
         self.rightNode = None
 
-def connectNodes(root):
-	if root is not None:
-		q = [root, None]
-		while q:
-			cur_node = q.pop(0)
-			
-			if cur_node:
-				cur_node.rightNode = q[0]
-					
-				if cur_node.left is not None:
-					q.append(cur_node.left)
-				if cur_node.right is not None:
-					q.append(cur_node.right)
-			elif q:
-				q.append(None)
 
-if __name__ == '__main__':
+def connectNodes(root):
+    if root is not None:
+        q = [root, None]
+        while q:
+            cur_node = q.pop(0)
+
+            if cur_node:
+                cur_node.rightNode = q[0]
+
+                if cur_node.left is not None:
+                    q.append(cur_node.left)
+                if cur_node.right is not None:
+                    q.append(cur_node.right)
+            elif q:
+                q.append(None)
+
+
+if __name__ == "__main__":
     root = Node(20)
     root.left = Node(8)
     root.right = Node(22)
@@ -37,4 +39,3 @@ if __name__ == '__main__':
     print(root.right.rightNode)
     print(root.left.left.rightNode.data)
     print(root.left.right.rightNode.data)
-    

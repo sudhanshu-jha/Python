@@ -8,19 +8,19 @@ def printBinary(num):
         return
 
     binary = []
-    binary.append('.')
+    binary.append(".")
 
     while num > 0:
         if len(binary) >= 32:
-            raise ValueError('ERROR')
+            raise ValueError("ERROR")
 
         r = num * 2
 
         if r >= 1:
-            binary.append('1')
+            binary.append("1")
             num = r - 1
         else:
-            binary.append('0')
+            binary.append("0")
             num = r
 
-    return ''.join(binary)
+    return "".join(binary)

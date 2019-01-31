@@ -5,6 +5,7 @@
 
 from enum import Enum
 
+
 class Operator(Enum):
     ADD = 1
     SUBTRACT = 2
@@ -12,11 +13,12 @@ class Operator(Enum):
     DIVIDE = 4
     BLANK = 5
 
+
 def compute(sequence):
     numberStack = []
     operatorStack = []
     i = 0
-    
+
     while i < len(sequence):
         # Get number and push
         value = parseNextNumber(sequence, i)
@@ -28,12 +30,11 @@ def compute(sequence):
             break
 
         # Get operator, collapse top as needed, push operator.
-        op = parseNextOperator(sequence,i)
+        op = parseNextOperator(sequence, i)
         collapseTop(op, numberStack, operatorStack)
         operatorStack.append(op)
-        
-        i += 1
 
+        i += 1
 
     # Do final collapse.
     collapseTop(Operator.BLANK, numberStack, operatorStack)
@@ -42,41 +43,47 @@ def compute(sequence):
 
     return 0
 
+
 def parseNextNumber(seq, index):
     sb = []
     while index < len(seq) and seq[index].isdigit():
         sb.append(seq[index])
         index += 1
-    
+
     return int("".join(sb))
+
 
 def parseNextOperator(seq, index):
     if index < len(seq):
         op = seq[index]
-        if op == '+':
+        if op == "+":
             return Operator.ADD
-        elif op == '-':
+        elif op == "-":
             return Operator.SUBTRACT
-        elif op == '*':
+        elif op == "*":
             return Operator.MULTIPLY
-        elif op == '/':
+        elif op == "/":
             return Operator.DIVIDE
 
     return Operator.BLANK
+
 
 # Collapse top until priority(futureTop) > priority(currentTop). Collapsing
 # means to pop the top 2 numbers and apply the operator popped from top of
 # operator stack and then push that onto the numbers stack.
 def collapseTop(futureTop, numberStack, operatorStack):
     while len(operatorStack) > 0 and len(numberStack) > 1:
-        if priorityOfOperator(futureTop) <= priorityOfOperator(operatorStack[len(operatorStack)-1]):
+        if priorityOfOperator(futureTop) <= priorityOfOperator(
+            operatorStack[len(operatorStack) - 1]
+        ):
             second = numberStack.pop()
             first = numberStack.pop()
             op = operatorStack.pop()
-            collapsed = applyOp(first,op,second)
+            collapsed = applyOp(first, op, second)
             numberStack.append(collapsed)
         else:
             break
+
 
 # Return priority of operator. Mapped so that:
 # addition == subtraction < multiplication == division
@@ -92,8 +99,9 @@ def priorityOfOperator(op):
     else:
         return 0
 
+
 # Apply operator: left [op] right
-def applyOp(left,op,right):
+def applyOp(left, op, right):
     if op == Operator.ADD:
         return left + right
     elif op == Operator.SUBTRACT:

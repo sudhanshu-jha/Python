@@ -11,8 +11,9 @@
 # A special case is with duplicate values, where we may have to search
 # in both halves.
 
+
 def searchRotated(arr, low, high, x):
-    mid = (low + high)/2
+    mid = (low + high) / 2
     if arr[mid] == x:
         return mid
     if low > high:
@@ -20,21 +21,21 @@ def searchRotated(arr, low, high, x):
 
     if arr[low] < arr[mid]:
         if arr[low] <= x < arr[mid]:
-            return searchRotated(arr, low, mid-1, x)
+            return searchRotated(arr, low, mid - 1, x)
         else:
-            return searchRotated(arr, mid+1, high, x)
+            return searchRotated(arr, mid + 1, high, x)
 
     elif arr[low] > arr[mid]:
         if arr[mid] < x <= arr[high]:
-            return searchRotated(arr, mid+1, high, x)
+            return searchRotated(arr, mid + 1, high, x)
         else:
-            return searchRotated(arr, low, mid-1, x)
+            return searchRotated(arr, low, mid - 1, x)
 
     else:
-        if arr[mid] != arr[high]: # Right half contains unique values
-            return searchRotated(arr, mid+1, high, x)
+        if arr[mid] != arr[high]:  # Right half contains unique values
+            return searchRotated(arr, mid + 1, high, x)
         else:
-            result = searchRotated(arr, low, mid-1, x)
+            result = searchRotated(arr, low, mid - 1, x)
             if result == -1:
-                result = searchRotated(arr, mid+1, high, x)
+                result = searchRotated(arr, mid + 1, high, x)
             return result

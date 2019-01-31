@@ -15,7 +15,7 @@ for _ in range(t):
     k = int(input())
     string_arr = [ele for ele in input().split(" ")]
 
-    if  k == 1:
+    if k == 1:
         print(string_arr[0])
         continue
     arr = []

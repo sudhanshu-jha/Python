@@ -6,6 +6,7 @@
 # Output:
 # 2 1 4 2 6 5 8 7
 
+
 def pairWiseSwap(head):
 
     if head == None or head.next == None:

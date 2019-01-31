@@ -10,7 +10,8 @@ def get_tail_and_length(head):
         cur = cur.get_next()
         length += 1
 
-    return { 'tail': cur, 'length': length }
+    return {"tail": cur, "length": length}
+
 
 # Returns the kth node from start of a linked list.
 def get_kth_node(head, k):
@@ -21,6 +22,7 @@ def get_kth_node(head, k):
 
     return cur
 
+
 def findIntersection(head1, head2):
     if head1 is None or head2 is None:
         return None
@@ -28,13 +30,13 @@ def findIntersection(head1, head2):
     result1 = get_tail_and_length(head1)
     result2 = get_tail_and_length(head2)
 
-    if result1['tail'] is not result2['tail']:
+    if result1["tail"] is not result2["tail"]:
         return None
 
-    longer = head1 if result1['length'] > result2['length'] else head2
+    longer = head1 if result1["length"] > result2["length"] else head2
     shorter = head1 if longer is head2 else head2
 
-    longer = get_kth_node(longer, abs(result1['length'] - result2['length']))
+    longer = get_kth_node(longer, abs(result1["length"] - result2["length"]))
 
     while shorter is not longer:
         shorter = shorter.get_next()
@@ -43,8 +45,8 @@ def findIntersection(head1, head2):
     return shorter
 
 
-# An alternate approach (not implemented) here is by having an 
+# An alternate approach (not implemented) here is by having an
 # additional "visited" field on each node in the two lists.
 # Travel one list and set the visited field on each node touched.
-# Then, while travelling the second list, the first node with 
+# Then, while travelling the second list, the first node with
 # visited = True should be the intersecting node.

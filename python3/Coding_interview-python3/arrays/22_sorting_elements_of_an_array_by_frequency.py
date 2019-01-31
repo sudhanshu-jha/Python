@@ -19,9 +19,7 @@ for _ in range(t):
             arrMap[ele] = 1
         else:
             arrMap[ele] = arrMap[ele] + 1
-    sorted_arr = sorted(arrMap.items(),
-                        key=operator.itemgetter(1),
-                        reverse=True)
+    sorted_arr = sorted(arrMap.items(), key=operator.itemgetter(1), reverse=True)
 
     for (key, val) in sorted_arr:
         n = val

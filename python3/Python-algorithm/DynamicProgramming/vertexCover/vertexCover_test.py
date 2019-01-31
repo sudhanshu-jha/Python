@@ -1,12 +1,14 @@
 from vertexCover import vCover
 import pytest
 
+
 class Node:
     def __init__(self, key):
         self.key = key
         self.left = None
         self.right = None
         self.vc = 0
+
 
 def test_vCover():
     root = Node(20)
@@ -17,7 +19,7 @@ def test_vCover():
     root.left.right.right = Node(14)
     root.right = Node(22)
     root.right.right = Node(25)
-    
+
     output = 3
-    
-    assert (vCover(root) == output)
+
+    assert vCover(root) == output

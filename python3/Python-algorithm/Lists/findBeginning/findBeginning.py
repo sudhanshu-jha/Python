@@ -8,23 +8,24 @@
 # So, set slow back to head and move both slow and fast by one node
 # at a time. They will meet at start of loop.
 
+
 def findBeginning(head):
-	fast = head
-	slow = head
-	
-	while fast is not None and fast.get_next() is not None:
-		fast = fast.get_next().get_next()
-		slow = slow.get_next()
-		if fast is slow:
-			break
-		
-	if fast is None or fast.get_next() is None:
-		return None
-		
-	slow = head
-	
-	while slow is not fast:
-		slow = slow.get_next()
-		fast = fast.get_next()
-		
-	return slow
+    fast = head
+    slow = head
+
+    while fast is not None and fast.get_next() is not None:
+        fast = fast.get_next().get_next()
+        slow = slow.get_next()
+        if fast is slow:
+            break
+
+    if fast is None or fast.get_next() is None:
+        return None
+
+    slow = head
+
+    while slow is not fast:
+        slow = slow.get_next()
+        fast = fast.get_next()
+
+    return slow

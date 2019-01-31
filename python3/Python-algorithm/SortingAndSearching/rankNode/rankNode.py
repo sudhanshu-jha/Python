@@ -5,8 +5,9 @@
 # While looking for the rank, if the element lies to right of
 # a node, we return the rank as rank(element) + left_size + 1
 
+
 class RankNode:
-    def __init__(self,key):
+    def __init__(self, key):
         self.key = key
         self.left = None
         self.right = None
@@ -39,6 +40,7 @@ class RankNode:
             else:
                 right_side = self.right.getRank(key)
                 return self.left_size + right_side + 1
+
 
 class Rank:
     def __init__(self):

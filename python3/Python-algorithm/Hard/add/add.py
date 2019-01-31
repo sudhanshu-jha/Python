@@ -9,9 +9,10 @@
 # This is an AND, shifted.
 # 3. Now recurse until there is nothing to carry.
 
-def add(a,b):
+
+def add(a, b):
     if b == 0:
         return a
     sum_val = a ^ b
     carry_val = (a & b) << 1
-    return add(sum_val,carry_val)
+    return add(sum_val, carry_val)

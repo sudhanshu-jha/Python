@@ -15,14 +15,17 @@
 
 SEQUENCE_LENGTH = 32
 
+
 def rshift(val, n):
     return (val % 0x100000000) >> n
+
 
 def longestSequence(n):
     if n == -1:
         return SEQUENCE_LENGTH
     sequences = get_alternating_sequences(n)
     return find_longest_sequence(sequences)
+
 
 # Returns list of the sequence sizes. The sequence starts off with the
 # number of 0s (which might be 0) and then alternates with the counts of
@@ -39,11 +42,12 @@ def get_alternating_sequences(n):
             searching_for = 1 if searching_for is 0 else 0
             counter = 0
         counter += 1
-        n = rshift(n,1) # We want to shift the sign bit too.
+        n = rshift(n, 1)  # We want to shift the sign bit too.
 
     sequences.append(counter)
 
     return sequences
+
 
 def find_longest_sequence(seq):
     max_seq = 1
@@ -51,11 +55,11 @@ def find_longest_sequence(seq):
     i = 0
     while i < len(seq):
         zeros_seq = seq[i]
-        ones_seq_right = seq[i-1] if i-1 >= 0 else 0
-        ones_seq_left = seq[i+1] if i+1 < len(seq) else 0
+        ones_seq_right = seq[i - 1] if i - 1 >= 0 else 0
+        ones_seq_left = seq[i + 1] if i + 1 < len(seq) else 0
 
         this_seq = 0
-        if zeros_seq == 1: # Can merge
+        if zeros_seq == 1:  # Can merge
             this_seq = ones_seq_left + ones_seq_right + 1
         elif zeros_seq > 1:
             this_seq = 1 + max(ones_seq_right, ones_seq_left)

@@ -11,6 +11,7 @@
 
 import functools
 
+
 def customCompare(a, b):
     if int(str(a) + str(b)) > int(str(b) + str(a)):
         return -1
@@ -19,9 +20,14 @@ def customCompare(a, b):
     else:
         return 0
 
+
 t = int(input())
 
 for _ in range(t):
     n = int(input())
     arr = [int(ele) for ele in input().split()]
-    print("".join([str(ele) for ele in sorted(arr, key=functools.cmp_to_key(customCompare))]))
+    print(
+        "".join(
+            [str(ele) for ele in sorted(arr, key=functools.cmp_to_key(customCompare))]
+        )
+    )

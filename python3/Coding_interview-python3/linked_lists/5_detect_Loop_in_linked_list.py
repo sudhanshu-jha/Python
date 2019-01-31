@@ -11,6 +11,7 @@
 # True
 # False
 
+
 def detectLoop(head):
 
     f_pointer = head

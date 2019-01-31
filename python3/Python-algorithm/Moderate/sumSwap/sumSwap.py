@@ -8,26 +8,28 @@
 # That is, we are looking for two numbers which have a given difference.
 # We can do this in linear time using a hashtable.
 
-def findSwapValues(arr1,arr2):
-    target = getTarget(arr1,arr2)
+
+def findSwapValues(arr1, arr2):
+    target = getTarget(arr1, arr2)
     if target is None:
         return None
-    return getDifference(arr1,arr2,target)
+    return getDifference(arr1, arr2, target)
 
-def getTarget(arr1,arr2):
+
+def getTarget(arr1, arr2):
     sum1 = sum(arr1)
     sum2 = sum(arr2)
 
-    if ((sum1-sum2)%2) != 0:
+    if ((sum1 - sum2) % 2) != 0:
         return None
-    return abs((sum1-sum2)/2)
+    return abs((sum1 - sum2) / 2)
 
-def getDifference(arr1,arr2,target):
+
+def getDifference(arr1, arr2, target):
     contents = set(arr1)
     for val in arr2:
         other = val - target
         if other in contents:
-            return (val,other)
+            return (val, other)
 
     return None
-

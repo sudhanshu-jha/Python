@@ -7,10 +7,11 @@
 # Output:
 # 4 2 2 1 8 7 6 5
 
+
 def reverse(head, k):
-    cur     = head
-    prev    = None
-    i       = k
+    cur = head
+    prev = None
+    i = k
 
     while i > 0 and cur is not None:
         temp = cur.next
@@ -20,6 +21,6 @@ def reverse(head, k):
         i -= 1
 
     if temp is not None:
-        head.next = reverse(temp,  k)
+        head.next = reverse(temp, k)
 
     return prev

@@ -24,23 +24,26 @@
 # from a specific substring or a specific start index (since we always
 # end at last character of main string in all subproblems)
 
+
 class ParsedResult:
     def __init__(self, invalid_count, parsed_string):
         self.invalid_count = invalid_count
         self.parsed_string = parsed_string
 
+
 def bestSplit(dictionary, sentence):
-    memo = [None]*len(sentence)
+    memo = [None] * len(sentence)
     r = split(dictionary, sentence, 0, memo)
     return r.parsed_string.strip() if r is not None else None
 
+
 def split(dictionary, sentence, start, memo):
     if start >= len(sentence):
-        return ParsedResult(0,"")
+        return ParsedResult(0, "")
     if memo[start] is not None:
         return memo[start]
 
-    bestInvalid = float('Inf')
+    bestInvalid = float("Inf")
     bestParsing = ""
     partial = ""
     index = start

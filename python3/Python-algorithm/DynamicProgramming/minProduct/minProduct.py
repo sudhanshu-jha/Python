@@ -2,10 +2,12 @@
 # use addition, subtraction and bit shifting but try to minimize the
 # use of those operations.
 
-def minProduct(a,b):
+
+def minProduct(a, b):
     smaller = a if a < b else b
     bigger = a if smaller == b else b
     return minProduct_helper(smaller, bigger)
+
 
 def minProduct_helper(smaller, bigger):
     if smaller == 0:

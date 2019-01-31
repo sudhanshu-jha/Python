@@ -1,6 +1,7 @@
 # Returns if a Linked List is a palindrome
 from LinkedList import LinkedList
 
+
 def reverse(lst):
     reverse_lst = LinkedList()
     cur = lst.head
@@ -8,6 +9,7 @@ def reverse(lst):
         reverse_lst.insert(cur.get_key())
         cur = cur.get_next()
     return reverse_lst
+
 
 def is_equal_list(list1, list2):
     cur1 = list1.head
@@ -19,6 +21,7 @@ def is_equal_list(list1, list2):
         cur2 = cur2.get_next()
 
     return cur1 is None and cur2 is None
+
 
 def isPalindrome(lst):
     reverse_lst = reverse(lst)
@@ -33,6 +36,7 @@ def isPalindrome(lst):
 # given list is palindrome. This approach is slightly more space
 # efficient as it would still use a Stack to get the reverse of first
 # half.
+
 
 def isPalidrome_iterative(lst):
     slow = lst.head

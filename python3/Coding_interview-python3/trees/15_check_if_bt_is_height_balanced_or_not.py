@@ -1,5 +1,4 @@
 class Node:
-
     def __init__(self, k):
         self.data = k
         self.left = None
@@ -15,9 +14,14 @@ def height(root):
 def checkForBalance(root):
     if root is None:
         return True
-    return abs(height(root.left) - height(root.left)) <= 1 and checkForBalance(root.left) and checkForBalance(root.right)
+    return (
+        abs(height(root.left) - height(root.left)) <= 1
+        and checkForBalance(root.left)
+        and checkForBalance(root.right)
+    )
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     root = Node(1)
     root.left = Node(2)
     root.right = Node(3)

@@ -7,17 +7,18 @@
 # 2. Shift M so that it lines up with bits j through i
 # 3. Merge M and N
 
-def updateBits(n,m,i,j):
+
+def updateBits(n, m, i, j):
 
     # Create a mask to clear bits i through j in n. Eg: i=2,j=4. Result
     # should be 11100011.
     allOnes = ~0
 
     # 1s before position j, then 0s
-    left = allOnes << (j+1)
+    left = allOnes << (j + 1)
 
     # 1s after position i
-    right = ((1 << i) - 1)
+    right = (1 << i) - 1
 
     mask = left or right
 
@@ -27,4 +28,3 @@ def updateBits(n,m,i,j):
     m_shifted = m << i
 
     return n_cleared | m_shifted
-

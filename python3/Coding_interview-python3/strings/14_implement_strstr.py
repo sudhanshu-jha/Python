@@ -7,8 +7,9 @@
 # -1
 # 5
 
+
 def strstr(string, substring):
-    str_len     = len(string)
+    str_len = len(string)
     sub_str_len = len(substring)
     for i in range(str_len - sub_str_len + 1):
         j = i

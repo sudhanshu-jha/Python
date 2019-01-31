@@ -1,5 +1,4 @@
 class MaxHeap:
-
     def __init__(self):
         self.heapList = [0]
         self.heapSize = 0
@@ -37,7 +36,7 @@ class MaxHeap:
         if index * 2 + 1 > self.heapSize:
             return index * 2
         else:
-            if self.heapList[index*2] > self.heapList[index*2 + 1]:
+            if self.heapList[index * 2] > self.heapList[index * 2 + 1]:
                 return index * 2
             else:
                 return index * 2 + 1
@@ -49,6 +48,7 @@ class MaxHeap:
         while i > 0:
             self.percDown(i)
             i -= 1
+
 
 maxHeap = MaxHeap()
 # maxHeap.insert(1)

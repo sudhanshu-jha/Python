@@ -11,7 +11,7 @@ t = int(input())
 
 for _ in range(t):
     rows, cols = 4, 4
-    arr = [ [0] * cols ] * rows
+    arr = [[0] * cols] * rows
     for i in range(rows):
         arr[i] = [int(ele) for ele in input().split()]
 
@@ -20,20 +20,19 @@ for _ in range(t):
 
     while start_row < end_row and start_col < end_col:
 
-        for j in range(start_col, end_col+1):
+        for j in range(start_col, end_col + 1):
             print(arr[start_row][j], end=" ")
         start_row += 1
 
-        for i in range(start_row, end_row+1):
+        for i in range(start_row, end_row + 1):
             print(arr[i][end_col], end=" ")
         end_col -= 1
 
-        for j in range(end_col, start_col-1, -1):
+        for j in range(end_col, start_col - 1, -1):
             print(arr[end_row][j], end=" ")
         end_row -= 1
 
-        for i in range(end_row, start_row-1, -1):
+        for i in range(end_row, start_row - 1, -1):
             print(arr[i][start_col], end=" ")
         start_col += 1
     print()
-    

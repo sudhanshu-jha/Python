@@ -7,6 +7,7 @@
 # 123
 # -1
 
+
 def atoi(string):
     for i in range(len(string)):
         if i == 0 and ord(string[i]) == 45:

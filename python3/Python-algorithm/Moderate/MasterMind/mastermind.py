@@ -1,5 +1,6 @@
 # Game of Master Mind.
 
+
 class Result:
     def __init__(self):
         self.hits = 0
@@ -8,26 +9,29 @@ class Result:
     def __str__(self):
         return "(" + self.hits + "," + self.pseudo_hits + ")"
 
+
 def code(c):
-    if c is 'B':
+    if c is "B":
         return 0
-    elif c is 'G':
+    elif c is "G":
         return 1
-    elif c is 'R':
+    elif c is "R":
         return 2
-    elif c is 'Y':
+    elif c is "Y":
         return 3
     else:
         return -1
 
+
 MAX_COLORS = 4
+
 
 def estimate(guess, solution):
     if len(guess) != len(solution):
         return None
 
     res = Result()
-    frequencies = [0]*MAX_COLORS
+    frequencies = [0] * MAX_COLORS
 
     for i in range(len(guess)):
         if guess[i] == solution[i]:

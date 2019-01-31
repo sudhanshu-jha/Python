@@ -1,7 +1,7 @@
 from project import Project
 
-class Graph:
 
+class Graph:
     def __init__(self):
         self.nodes = []
         self.project_map = {}

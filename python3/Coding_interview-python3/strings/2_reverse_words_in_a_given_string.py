@@ -13,8 +13,8 @@ for _ in range(t):
     arr = [ele for ele in input().split(".")]
     n = len(arr)
     final_str = ""
-    for i in range(n-1, -1, -1):
-        if i != n-1:
+    for i in range(n - 1, -1, -1):
+        if i != n - 1:
             final_str += "."
         final_str += arr[i]
     print(final_str)

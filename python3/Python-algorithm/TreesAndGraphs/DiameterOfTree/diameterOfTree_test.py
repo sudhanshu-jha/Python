@@ -1,10 +1,12 @@
 from diameterOfTree import diameter
 import pytest
 
+
 class Node:
-    def __init__(self,left=None,right=None):
+    def __init__(self, left=None, right=None):
         self.left = left
         self.right = right
+
 
 def test_diameter():
     nodes = []
@@ -26,4 +28,4 @@ def test_diameter():
 
     res = diameter(nodes[0])
 
-    assert(res['diameter'] == 9)
+    assert res["diameter"] == 9

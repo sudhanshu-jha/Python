@@ -3,8 +3,10 @@
 # a magic index, if one exists, in array.
 # FOLLOW UP: What if values are not distinct
 
+
 def magicIndex(arr):
-    return magicIndex_helper(arr, 0, len(arr)-1)
+    return magicIndex_helper(arr, 0, len(arr) - 1)
+
 
 def magicIndex_helper(arr, low, high):
     if low > high:
@@ -13,9 +15,10 @@ def magicIndex_helper(arr, low, high):
     if arr[mid] == mid:
         return mid
     elif arr[mid] > mid:
-        return magicIndex_helper(arr, low, mid-1)
+        return magicIndex_helper(arr, low, mid - 1)
     else:
-        return magicIndex_helper(arr, mid+1, high)
+        return magicIndex_helper(arr, mid + 1, high)
+
 
 # For second part, when the elements in the array can repeat, we
 # cannot decide simply to go left or right by comparing a[mid] and
@@ -33,8 +36,10 @@ def magicIndex_helper(arr, low, high):
 # 1) search left half from start till min(mid-1, arr[mid])
 # 2) search right half from max(mid+1,arr[max]) to end
 
+
 def magicIndex_Repition(arr):
-    return magicIndex_Repition_helper(arr, 0, len(arr)-1)
+    return magicIndex_Repition_helper(arr, 0, len(arr) - 1)
+
 
 def magicIndex_Repition_helper(arr, low, high):
     if low > high:
@@ -44,11 +49,11 @@ def magicIndex_Repition_helper(arr, low, high):
     if midVal == mid:
         return mid
     # Search left
-    left = min(mid-1, midVal)
+    left = min(mid - 1, midVal)
     left_result = magicIndex_Repition_helper(arr, low, left)
     if left_result >= 0:
         return left_result
     # Search right
-    right = max(mid+1, midVal)
+    right = max(mid + 1, midVal)
     right_result = magicIndex_Repition_helper(arr, right, high)
     return right_result

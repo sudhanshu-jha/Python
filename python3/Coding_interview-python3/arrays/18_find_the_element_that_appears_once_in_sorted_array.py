@@ -10,6 +10,7 @@
 
 # 4
 
+
 def binarySearch(arr, l, r):
     if l > r:
         return -1
@@ -17,21 +18,22 @@ def binarySearch(arr, l, r):
     if l == r:
         return arr[l]
 
-    mid  = (l + r) // 2
+    mid = (l + r) // 2
     if (mid % 2) == 0:
-        if arr[mid] == arr[mid+1]:
-            return binarySearch(arr, mid+2, r)
+        if arr[mid] == arr[mid + 1]:
+            return binarySearch(arr, mid + 2, r)
         else:
             return binarySearch(arr, l, mid)
     if (mid % 2) == 1:
-        if arr[mid] == arr[mid-1]:
-            return binarySearch(arr, mid+1, r)
+        if arr[mid] == arr[mid - 1]:
+            return binarySearch(arr, mid + 1, r)
         else:
-            return binarySearch(arr, l, mid-1)
+            return binarySearch(arr, l, mid - 1)
+
 
 t = int(input())
 
 for _ in range(t):
     n = int(input())
     arr = [int(ele) for ele in input().split()]
-    print(binarySearch(arr, 0, n-1))
+    print(binarySearch(arr, 0, n - 1))

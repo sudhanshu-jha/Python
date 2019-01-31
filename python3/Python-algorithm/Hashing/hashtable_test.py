@@ -1,6 +1,7 @@
 from hashtable import HashTable
 import pytest
 
+
 def test_put():
     ht = HashTable()
 
@@ -9,8 +10,9 @@ def test_put():
     ht.put(20, 110)
 
     # test with string keys
-    ht.put('cat', 125)
-    ht.put('meow', 'blah!')
+    ht.put("cat", 125)
+    ht.put("meow", "blah!")
+
 
 def test_get():
     ht = HashTable()
@@ -20,13 +22,14 @@ def test_get():
     ht.put(20, 110)
 
     # test with string keys
-    ht.put('cat', 125)
-    ht.put('meow', 'blah!')
+    ht.put("cat", 125)
+    ht.put("meow", "blah!")
 
-    assert(ht.get(9) == 100)
-    assert(ht.get(20) == 110)
-    assert(ht.get('cat') == 125)
-    assert(ht.get('meow') == 'blah!')
+    assert ht.get(9) == 100
+    assert ht.get(20) == 110
+    assert ht.get("cat") == 125
+    assert ht.get("meow") == "blah!"
+
 
 def test_remove():
     ht = HashTable()
@@ -36,16 +39,17 @@ def test_remove():
     ht.put(20, 110)
 
     # test with string keys
-    ht.put('cat', 125)
-    ht.put('meow', 'blah!')
+    ht.put("cat", 125)
+    ht.put("meow", "blah!")
 
     ht.remove(9)
-    ht.remove('cat')
+    ht.remove("cat")
 
-    assert(ht.get(9) is None)
-    assert(ht.get('cat') is None)
-    assert(ht.get(20) == 110)
-    assert(ht.get('meow') == 'blah!')
+    assert ht.get(9) is None
+    assert ht.get("cat") is None
+    assert ht.get(20) == 110
+    assert ht.get("meow") == "blah!"
+
 
 def test_size():
     ht = HashTable()
@@ -55,13 +59,12 @@ def test_size():
     ht.put(20, 110)
 
     # test with string keys
-    ht.put('cat', 125)
-    ht.put('meow', 'blah!')
+    ht.put("cat", 125)
+    ht.put("meow", "blah!")
 
-    assert(ht.size() == 4)
+    assert ht.size() == 4
 
     ht.remove(9)
-    ht.remove('cat')
+    ht.remove("cat")
 
-    assert(ht.size() == 2)
-
+    assert ht.size() == 2

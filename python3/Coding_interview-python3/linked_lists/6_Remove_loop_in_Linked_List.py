@@ -10,6 +10,7 @@
 # 1
 # 1
 
+
 def removeTheLoop(head):
 
     s_pointer = head

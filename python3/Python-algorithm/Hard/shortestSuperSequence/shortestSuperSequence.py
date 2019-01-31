@@ -21,5 +21,3 @@
 # repeat the process.
 # We can achieve better performance for extracting and maintaining
 # mins using a min-heap.
-
-

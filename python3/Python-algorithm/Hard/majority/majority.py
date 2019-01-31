@@ -3,9 +3,11 @@
 # if no majority element found. You should do this in O(n) time and
 # O(1) extra space.
 
+
 def findMajorityElement(arr):
     candidate = getCandidate(arr)
-    return candidate if validate(arr,candidate) is True else -1
+    return candidate if validate(arr, candidate) is True else -1
+
 
 def getCandidate(arr):
     count = 0
@@ -20,10 +22,11 @@ def getCandidate(arr):
 
     return majority
 
+
 def validate(arr, majority):
     count = 0
     for val in arr:
         if val == majority:
             count += 1
 
-    return count > len(arr)/2
+    return count > len(arr) / 2

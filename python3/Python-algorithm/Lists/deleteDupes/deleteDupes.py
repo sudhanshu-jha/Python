@@ -1,6 +1,7 @@
 # Removes duplicates from an unsorted linked list without using
 # temporary buffer
 
+
 def deleteDupes(lst):
     cur = lst.head
     while cur is not None:
@@ -12,4 +13,3 @@ def deleteDupes(lst):
                     runner.get_next().set_prev(runner.get_prev())
             runner = runner.get_next()
         cur = cur.get_next()
-

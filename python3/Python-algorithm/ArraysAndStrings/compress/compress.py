@@ -5,6 +5,7 @@
 # If the "compressed" string would not become smaller than the original,
 # return the original string
 
+
 def compress(original):
     compressed_list = []
     consecutive_count = 0
@@ -16,8 +17,5 @@ def compress(original):
             compressed_list.append(str(consecutive_count))
             consecutive_count = 0
 
-    compressed_string = ''.join(compressed_list)
+    compressed_string = "".join(compressed_list)
     return compressed_string if len(compressed_string) < len(original) else original
-
-
-

@@ -4,14 +4,15 @@
 # The main idea is to find a non-empty string as mid and then do a
 # bin-search in left or right halves.
 
+
 def search(strings, x, low, high):
     if low > high:
         return -1
-    mid = (low + high)/2
+    mid = (low + high) / 2
 
     if strings[mid] == "":
-        left = mid-1
-        right = mid+1
+        left = mid - 1
+        right = mid + 1
 
         while True:
             if left < low and right > high:
@@ -28,12 +29,12 @@ def search(strings, x, low, high):
     if strings[mid] == x:
         return mid
     elif strings[mid] > x:
-        return search(strings, x, low, mid-1)
+        return search(strings, x, low, mid - 1)
     else:
-        return search(strings, x, mid+1, high)
+        return search(strings, x, mid + 1, high)
 
 
 def sparseSearch(strings, x):
     if x is None or x == "":
         return -1
-    return search(strings, x, 0, len(strings)-1)
+    return search(strings, x, 0, len(strings) - 1)

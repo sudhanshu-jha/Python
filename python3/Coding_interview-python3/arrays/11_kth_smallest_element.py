@@ -1,5 +1,4 @@
 class MinHeap:
-
     def __init__(self):
         self.heapList = [0]
         self.heapSize = 0
@@ -37,7 +36,7 @@ class MinHeap:
         if index * 2 + 1 > self.heapSize:
             return index * 2
         else:
-            if self.heapList[index*2] < self.heapList[index*2 + 1]:
+            if self.heapList[index * 2] < self.heapList[index * 2 + 1]:
                 return index * 2
             else:
                 return index * 2 + 1
@@ -50,6 +49,7 @@ class MinHeap:
             self.percDown(i)
             i -= 1
 
+
 t = int(input())
 
 for _ in range(t):
@@ -58,6 +58,6 @@ for _ in range(t):
     k = int(input())
     minHeap = MinHeap()
     minHeap.buildMinHeap(arr)
-    for _ in range(k-1):
+    for _ in range(k - 1):
         minHeap.delMin()
     print(minHeap.heapList[1])

@@ -1,15 +1,17 @@
 # Given a sorted array with unique integer elements, create a BST
 # with minimal height
 
-class Node:
 
+class Node:
     def __init__(self, key):
         self.key = key
         self.left = None
         self.right = None
 
+
 def createMinimalBST(items):
     return createMinimalBST_helper(items, 0, len(items) - 1)
+
 
 def createMinimalBST_helper(items, start, end):
     if start > end:

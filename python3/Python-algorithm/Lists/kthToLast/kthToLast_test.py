@@ -2,6 +2,7 @@ from LinkedList import LinkedList
 from kthToLast import kthToLast
 import pytest
 
+
 def test_kthToLast():
     lst = LinkedList()
     lst.insert("Batman")
@@ -16,10 +17,8 @@ def test_kthToLast():
     _1st_last = kthToLast(lst, 1)
     _overflow = kthToLast(lst, 10)
     _underflow = kthToLast(lst, -1)
-    assert(_2nd_last.get_key() == "Superman")
-    assert(_6th_last.get_key() == "Hawkgirl")
-    assert(_1st_last.get_key() == "Batman")
-    assert(_overflow is None)
-    assert(_underflow is None)
-
-
+    assert _2nd_last.get_key() == "Superman"
+    assert _6th_last.get_key() == "Hawkgirl"
+    assert _1st_last.get_key() == "Batman"
+    assert _overflow is None
+    assert _underflow is None

@@ -14,6 +14,7 @@
 # ie all possible orderings of items from the two lists while still
 # maintaining the relative order between elements.
 
+
 def allSequences(node):
     result = []
 

@@ -9,15 +9,18 @@
 #          we haven't found an end for current optimal), then set overlap.end = end
 #          and reset flag.
 
+
 class Interval:
     def __init__(self, low, high):
         self.low = low
         self.high = high
 
+
 class IntervalHelper:
     def __init__(self, key, is_low):
         self.key = key
         self.is_low = is_low
+
 
 def transformIntervals(intervals):
     transformed = []
@@ -29,6 +32,7 @@ def transformIntervals(intervals):
 
     return transformed
 
+
 def intervalComparator(int1, int2):
     if int1.key < int2.key:
         return -1
@@ -37,13 +41,14 @@ def intervalComparator(int1, int2):
     else:
         return 1
 
+
 def overlappingInterval(intervals):
     transformed = transformIntervals(intervals)
     transformed = sorted(transformed, cmp=intervalComparator)
 
-    max_count = -float('inf')
+    max_count = -float("inf")
     count = 0
-    overlap = Interval(0,0)
+    overlap = Interval(0, 0)
     flag = 0
 
     for interval in transformed:

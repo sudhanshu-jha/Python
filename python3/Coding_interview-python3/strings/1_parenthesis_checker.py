@@ -16,7 +16,7 @@ for _ in range(t):
     flag = 0
     arr = []
     for char in string:
-        if char == '{' or char == '[' or char == '(':
+        if char == "{" or char == "[" or char == "(":
             arr.append(char)
         else:
             if not arr:
@@ -24,12 +24,14 @@ for _ in range(t):
                 flag = 1
                 break
             popped_char = arr.pop()
-            if (popped_char == '{' and char != '}') or \
-                (popped_char == '[' and char != ']') or \
-                (popped_char == '(' and char != ')'):
-                    print("not balanced")
-                    flag = 1
-                    break
+            if (
+                (popped_char == "{" and char != "}")
+                or (popped_char == "[" and char != "]")
+                or (popped_char == "(" and char != ")")
+            ):
+                print("not balanced")
+                flag = 1
+                break
     if flag == 0 and arr:
         flag = 1
         print("not balanced")

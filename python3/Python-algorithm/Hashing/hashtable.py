@@ -18,25 +18,28 @@ from math import floor
 
 p = 14
 w = 32
-A = (sqrt(5)-1)/2
+A = (sqrt(5) - 1) / 2
 m = pow(2, p)
 radix = 128
 
+
 def get_hash(key):
     return int(floor(m * (key * A % 1)))
+
 
 def string_to_int(string):
     str_len = len(string)
     result = 0
 
-    for i in reversed(range(0,str_len)):
-        result += ord(string[i]) * pow(radix, str_len-i-1)
+    for i in reversed(range(0, str_len)):
+        result += ord(string[i]) * pow(radix, str_len - i - 1)
 
     return result
 
+
 class HashTable:
     def __init__(self):
-        self.table = [None]*m
+        self.table = [None] * m
         self.table_size = 0
 
     def get_slot_index(self, key):
@@ -80,7 +83,6 @@ class HashTable:
 
         return None
 
-
     def remove(self, key):
         slot_index = self.get_slot_index(key)
 
@@ -99,7 +101,5 @@ class HashTable:
             self.table[slot_index].pop(index)
             self.table_size -= 1
 
-
     def size(self):
         return self.table_size
-

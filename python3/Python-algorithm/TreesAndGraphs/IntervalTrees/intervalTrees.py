@@ -9,6 +9,7 @@
 # m.low >= n.low. Also, each node stores the maximum value for high
 # attribute for entire subtree rooted at that node.
 
+
 class Interval:
     def __init__(self, low, high):
         self.low = low
@@ -16,6 +17,7 @@ class Interval:
 
     def __eq__(self, other):
         return self.low == other.low and self.high == other.high
+
 
 class IntervalTreeNode:
     def __init__(self, interval=None, left=None, right=None):
@@ -39,7 +41,10 @@ class IntervalTreeNode:
                 self.right.insert(interval)
 
     def is_overlap(self, interval):
-        return not self.interval.high <= interval.low and not self.interval.low >= interval.high
+        return (
+            not self.interval.high <= interval.low
+            and not self.interval.low >= interval.high
+        )
 
     def search(self, interval):
         cur = self
@@ -50,4 +55,3 @@ class IntervalTreeNode:
                 cur = cur.right
 
         return cur
-

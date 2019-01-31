@@ -10,20 +10,19 @@
 # length k and another of length n-k.
 # What we need to decide is whether after making a cut at position k,
 # do we need to further cut the part of length n-k?
-# so, ropeCut(n) = max(i*(n-i), i*ropeCut(n-i)) for all positions 
+# so, ropeCut(n) = max(i*(n-i), i*ropeCut(n-i)) for all positions
 # i = 1,2,3,...,n
 
-def ropeCutting (n):
-    memo = [0] * (n+1)
+
+def ropeCutting(n):
+    memo = [0] * (n + 1)
     memo[0] = 0
     memo[1] = 0
-    
-    for i in range(1,n+1):
-        cur_max = -float('inf')
-        for j in range(1, (i/2+1)):
-            cur_max = max(cur_max, j*(i-j), j*memo[i-j])
+
+    for i in range(1, n + 1):
+        cur_max = -float("inf")
+        for j in range(1, (i / 2 + 1)):
+            cur_max = max(cur_max, j * (i - j), j * memo[i - j])
         memo[i] = cur_max
-    
+
     return memo[n]
-    
-    

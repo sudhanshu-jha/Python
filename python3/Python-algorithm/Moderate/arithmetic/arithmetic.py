@@ -11,23 +11,26 @@ def negate(a):
         a += newSign
     return neg
 
-def minus(a,b):
+
+def minus(a, b):
     return a + negate(b)
 
-def multiply(a,b):
+
+def multiply(a, b):
     if a < b:
-        return multiply(b,a)
+        return multiply(b, a)
 
     sum_val = 0
     i = abs_val(b)
     while i > 0:
         sum_val += a
-        i = minus(i,1)
+        i = minus(i, 1)
 
     if b < 0:
         sum_val = negate(sum_val)
 
     return sum_val
+
 
 def abs_val(a):
     if a > 0:
@@ -35,9 +38,10 @@ def abs_val(a):
     else:
         return negate(a)
 
-def divide(a,b):
+
+def divide(a, b):
     if b == 0:
-        raise ValueError('Cannot divide by zero')
+        raise ValueError("Cannot divide by zero")
 
     absa = abs_val(a)
     absb = abs_val(b)

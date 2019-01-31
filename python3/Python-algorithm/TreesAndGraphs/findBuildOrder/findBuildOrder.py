@@ -7,9 +7,11 @@
 # if there is a cycle in the graph.
 from graph import Graph
 
+
 def findBuildOrder(projects, dependencies):
     graph = build_graph(projects, dependencies)
     return order_projects(graph.get_nodes())
+
 
 def build_graph(projects, dependencies):
     graph = Graph()
@@ -23,6 +25,7 @@ def build_graph(projects, dependencies):
             graph.add_edge(node, dep)
 
     return graph
+
 
 def order_projects(projects):
     order = [None] * len(projects)
@@ -43,11 +46,10 @@ def order_projects(projects):
 
     return order
 
+
 def add_non_dependent(order, projects, offset):
     for project in projects:
         if project.get_dependency_count() == 0:
             order[offset] = project
             offset += 1
     return offset
-
-

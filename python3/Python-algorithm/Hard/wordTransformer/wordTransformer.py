@@ -15,10 +15,12 @@
 # Now, if a wildcard can be reached from multiple words, then all
 # those words are one edit away from each other.
 
+
 def transform(start, stop, words):
     wildCardToWordList = createWildCardToWordMap(words)
     visited = set([])
     return transformHelper(visited, start, stop, wildCardToWordList)
+
 
 def createWildCardToWordMap(words):
     wildCardToWords = {}
@@ -32,13 +34,15 @@ def createWildCardToWordMap(words):
 
     return wildCardToWords
 
+
 def getWildCardRoots(word):
     linked = []
     for i in range(len(word)):
-        w = word[0:i] + '_' + word[i+1:]
+        w = word[0:i] + "_" + word[i + 1 :]
         linked.append(w)
 
     return linked
+
 
 def transformHelper(visited, startWord, stopWord, wildCardToWordMap):
     if startWord == stopWord:
@@ -58,6 +62,7 @@ def transformHelper(visited, startWord, stopWord, wildCardToWordMap):
 
     return None
 
+
 def getValidLinkedWords(word, wildCardToWordMap):
     result = []
     linked = getWildCardRoots(word)
@@ -69,4 +74,3 @@ def getValidLinkedWords(word, wildCardToWordMap):
                 result.append(w)
 
     return result
-

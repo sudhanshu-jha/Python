@@ -8,6 +8,7 @@
 # possible paths downward from that node, sum the values along the
 # path and compare with given value.
 
+
 def countPathsWithSum_BF(root, target_sum):
     if root is None:
         return 0
@@ -33,6 +34,7 @@ def countPathsWithSumFromNode(node, target_sum, current_sum):
     total_paths += countPathsWithSumFromNode(node.right, target_sum, current_sum)
 
     return total_paths
+
 
 # Optimized solution
 # If we see the brute force solution, suppose we see a downward path
@@ -60,12 +62,14 @@ def countPathsWithSumFromNode(node, target_sum, current_sum):
 # give us all the paths that sum upto the target value for a path ending
 # at that node.
 
+
 def countPathsWithSum(node, target_sum):
     if node is None:
         return 0
     path_count = {}
-    update_hash_table(0, path_count, 1) # Needed if target path starts at root
+    update_hash_table(0, path_count, 1)  # Needed if target path starts at root
     return countPathWithSum_helper(node, path_count, target_sum, 0)
+
 
 def countPathWithSum_helper(node, path_count, target_sum, running_sum):
     if node is None:
@@ -79,8 +83,12 @@ def countPathWithSum_helper(node, path_count, target_sum, running_sum):
     if desired_sum in path_count:
         total_paths = path_count[desired_sum]
 
-    total_paths += countPathWithSum_helper(node.left, path_count, target_sum, running_sum)
-    total_paths += countPathWithSum_helper(node.right, path_count, target_sum, running_sum)
+    total_paths += countPathWithSum_helper(
+        node.left, path_count, target_sum, running_sum
+    )
+    total_paths += countPathWithSum_helper(
+        node.right, path_count, target_sum, running_sum
+    )
 
     # This step basically removes the running sum till current node
     # as we back out to a different path in the tree.
@@ -88,10 +96,9 @@ def countPathWithSum_helper(node, path_count, target_sum, running_sum):
 
     return total_paths
 
+
 def update_hash_table(key, table, delta):
     if key in table:
         table[key] += delta
     else:
         table[key] = 1
-
-
